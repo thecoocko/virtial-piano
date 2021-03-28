@@ -8,15 +8,15 @@ const fullscreen = document.querySelector('.fullscreen').addEventListener('click
       }
     }
 });
-/**active*/
+
 const btnLetters = document.querySelector('.btn-letters');
 const btnNotes = document.querySelector('.btn-notes');
 const piano = document.getElementsByClassName('piano');
 const keys = document.querySelectorAll('.piano-key')
 
 /**music */
-window.addEventListener('keydown', e=>{
-    if(e.code === 'KeyD') playmusic('assets/audio/c.mp3');
+window.addEventListener('keypress', e=>{
+    if(e.code === 'KeyD') playmusic('assets/audio/c.mp3'); 
     if(e.code === 'KeyF') playmusic('assets/audio/d.mp3');
     if(e.code === 'KeyG') playmusic('assets/audio/e.mp3');
     if(e.code === 'KeyH') playmusic('assets/audio/f.mp3');
@@ -45,20 +45,56 @@ function playmusic(url){
     audio.play();
 }
 piano[0].addEventListener('click',(e)=>{
-    if(e.target.dataset.note === 'c') playmusic('assets/audio/c.mp3');
-    if(e.target.dataset.note === 'd') playmusic('assets/audio/d.mp3');
-    if(e.target.dataset.note === 'e') playmusic('assets/audio/e.mp3');
-    if(e.target.dataset.note === 'f') playmusic('assets/audio/f.mp3');
-    if(e.target.dataset.note === 'g') playmusic('assets/audio/g.mp3');
-    if(e.target.dataset.note === 'a') playmusic('assets/audio/a.mp3');
-    if(e.target.dataset.note === 'b') playmusic('assets/audio/b.mp3');
+    if(e.target.dataset.note === 'c') {
+        playmusic('assets/audio/c.mp3');
+        e.target.classList.add('active-key');
+        setTimeout(()=>{
+            e.target.classList.remove('active-key')
+        }, 200)
+    }
+    if(e.target.dataset.note === 'd') {
+        playmusic('assets/audio/d.mp3')
+        e.target.classList.add('active-key');
+        setTimeout(()=>{
+            e.target.classList.remove('active-key')
+        }, 200)
+    }
+    if(e.target.dataset.note === 'e') {playmusic('assets/audio/e.mp3');e.target.classList.add('active-key');setTimeout(()=>{e.target.classList.remove('active-key')}, 200)}
+    if(e.target.dataset.note === 'f') {playmusic('assets/audio/f.mp3'); e.target.classList.add('active-key'); setTimeout(()=>{e.target.classList.remove('active-key')}, 200)}
+    if(e.target.dataset.note === 'g') {playmusic('assets/audio/g.mp3'); e.target.classList.add('active-key');
+    setTimeout(()=>{
+        e.target.classList.remove('active-key')
+    }, 200)}
+    if(e.target.dataset.note === 'a') {playmusic('assets/audio/a.mp3') ;e.target.classList.add('active-key');
+    setTimeout(()=>{
+        e.target.classList.remove('active-key')
+    }, 200)}
+    if(e.target.dataset.note === 'b') {playmusic('assets/audio/b.mp3') ; e.target.classList.add('active-key');
+    setTimeout(()=>{
+        e.target.classList.remove('active-key')
+    }, 200)}
     /**key sharp */
-    if(e.target.dataset.note === 'c♯') playmusic('assets/audio/c♯.mp3');
-    if(e.target.dataset.note === 'd♯') playmusic('assets/audio/d♯.mp3');
-    if(e.target.dataset.note === 'f♯') playmusic('assets/audio/f♯.mp3');
-    if(e.target.dataset.note === 'g♯') playmusic('assets/audio/g♯.mp3');
-    if(e.target.dataset.note === 'a♯') playmusic('assets/audio/a♯.mp3');
-});
+    if(e.target.dataset.note === 'c♯') {playmusic('assets/audio/c♯.mp3'); e.target.classList.add('active-key');
+    setTimeout(()=>{
+        e.target.classList.remove('active-key')
+}, 200)}
+    if(e.target.dataset.note === 'd♯') {playmusic('assets/audio/d♯.mp3'); e.target.classList.add('active-key');
+    setTimeout(()=>{
+        e.target.classList.remove('active-key')
+    }, 200)}
+    if(e.target.dataset.note === 'f♯') {playmusic('assets/audio/f♯.mp3'); e.target.classList.add('active-key');
+    setTimeout(()=>{
+        e.target.classList.remove('active-key')
+    }, 200)}
+    if(e.target.dataset.note === 'g♯') {playmusic('assets/audio/g♯.mp3'); e.target.classList.add('active-key');
+    setTimeout(()=>{
+        e.target.classList.remove('active-key')
+    }, 200)}
+    if(e.target.dataset.note === 'a♯') {playmusic('assets/audio/a♯.mp3'); e.target.classList.add('active-key');
+    setTimeout(()=>{
+        e.target.classList.remove('active-key')
+    }, 200)}
+    })
 
 btnLetters.addEventListener('click',()=>{
     btnLetters.classList.add('btn-active');
