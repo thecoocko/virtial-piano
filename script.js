@@ -8,12 +8,10 @@ const fullscreen = document.querySelector('.fullscreen').addEventListener('click
       }
     }
 });
-
 const btnLetters = document.querySelector('.btn-letters');
 const btnNotes = document.querySelector('.btn-notes');
 const piano = document.getElementsByClassName('piano');
 const keys = document.querySelectorAll('.piano-key')
-
 /**music */
 window.addEventListener('keypress', e=>{
     if(e.code === 'KeyD') playmusic('assets/audio/c.mp3'); 
